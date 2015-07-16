@@ -432,7 +432,7 @@ h2 { padding-left:25px; }
 	#home-wrap img { 
 		max-width:400px;
 		width:400px; 
-		margin-right:28%;
+		margin-right:20%;
 	}
 
 	#projects-wrap {
@@ -482,11 +482,7 @@ h2 { padding-left:25px; }
 }
 
 @media (min-width: 1122px) {
-	#home-wrap img { 
-		max-width:570px;
-		width:570px; 
-		text-align:center; 
-	}
+	
 	#prj-showcase-carousel-wrap {
 		width:664px;
 		height:507px;

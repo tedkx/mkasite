@@ -3,7 +3,7 @@ window.mka = {
 	currentPaneId: '#home-pane',
 	firstLoad: true,
 	paneTransitionDur: 0.6,
-	projectTransitionDur: 0.4,
+	projectTransitionDur: 0.5,
 	projectsInitialized: false,
 	supportsCssTransitions: typeof((document.body || document.documentElement).style.transition) === 'string',
 
@@ -16,7 +16,7 @@ window.mka = {
 			TweenLite.to(logo[0], window.mka.paneTransitionDur, { height: '90px', ease: Power3.easeOut });
 		}
 	},
-	jsTransitionCallbackFn: function($fromPane, $toPane) {
+	jsTransitionCallbackFn: function($fromPane, $toPane, duration) {
 		if(!window.mka.firstLoad) $fromPane.hide();
 		if($fromPane.attr('id') === 'projects-pane') { $('#prj-showcase-close').click(); }
 		if($toPane.attr('id') === 'projects-pane') {
@@ -26,7 +26,7 @@ window.mka = {
 				window.mka.projectsInitialized = true;
 			}
 		} 
-		TweenLite.to('#' + $toPane.attr('id'), 0.5, { paddingTop: 0, opacity:1, ease: Power3.easeInOut });
+		TweenLite.to('#' + $toPane.attr('id'), duration || window.mka.paneTransitionDur, { paddingTop: 0, opacity:1, ease: Power3.easeInOut });
 	},
 	switchPane: function(targetPaneId) {
 		var currentPane = $(window.mka.currentPaneId),
@@ -38,8 +38,7 @@ window.mka = {
 	transitionFn_: function($fromPane,$toPane) {
 		$toPane.show();
 		if(window.mka.firstLoad) {
-			console.log('first load',window.mka.firstLoad);
-			window.mka.jsTransitionCallbackFn($fromPane,$toPane);
+			window.mka.jsTransitionCallbackFn($fromPane,$toPane, 1);
 			window.mka.firstLoad = false;
 		} else {
 			TweenLite.to('#' + $fromPane.attr('id'), 0.5, { paddingTop: "50px", opacity:0, ease: Power3.easeInOut, onComplete: function() {
