@@ -1,6 +1,6 @@
 window.sitedata = {
-	"projects": [
-		{
+	"projects": {
+		"dodekanisou": {
 			"title":"ΔΩΔΕΚΑΝΗΣΟΥ: Πενταώροφη οικοδομή στην Άνω Νεάπολη",
 			"category":0,
 			"thumb":"dodekanisou.jpg",
@@ -9,8 +9,8 @@ window.sitedata = {
 			"period":"2007|2011",
 			"overseer":"Α.Μιμίκου|Π.Κρουστάλλης "
 		},
-		{
-			"title":"ΚΑΤΣΩΝΗ: Επταώροφη οικοδομή στη Νίκαια",
+		"katsoni": {
+			"title":"Επταώροφη οικοδομή στη Νίκαια",
 			"category":0,
 			"thumb":"katsoni.jpg",
 			"images":["katsoni.jpg"],
@@ -18,8 +18,8 @@ window.sitedata = {
 			"period":"2005|2008",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου, Λ.Λάδης"
 		},
-		{
-			"title":"ΝΙΚΗΤΑΡΑ: Εξαώροφη οικοδομή στην περιοχή της Αγ.Σοφίας, Πειραιά",
+		"nikitara": {
+			"title":"Εξαώροφη οικοδομή στην περιοχή της Αγ.Σοφίας, Πειραιά",
 			"category":0,
 			"thumb":"nikitara.jpg",
 			"images":["nikitara.jpg"],
@@ -27,8 +27,8 @@ window.sitedata = {
 			"period":"2004|2006",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου"
 		},
-		{
-			"title":"ΑΙΓΙΝΑ: Παραθαλάσσια κατοικία στην Αίγινα",
+		"aigina": {
+			"title":"Παραθαλάσσια κατοικία στην Αίγινα",
 			"category":0,
 			"thumb":"aigina.jpg",
 			"images":["aigina.jpg"],
@@ -36,8 +36,8 @@ window.sitedata = {
 			"period":"2010",
 			"overseer":"Α.Μιμίκου|  -"
 		},
-		{
-			"title":"ΛΥΚΟΥΡΓΟΥ: Επταώροφη οικοδομή στην Καλλιθέα",
+		"lykourgou": {
+			"title":"Επταώροφη οικοδομή στην Καλλιθέα",
 			"category":0,
 			"thumb":"lykourgou.jpg",
 			"images":["lykourgou.jpg"],
@@ -45,8 +45,8 @@ window.sitedata = {
 			"period":"2005|2006",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου, Α.Σταντίδη"
 		},
-		{
-			"title":"ΤΡΟΙΑΣ: Εξαώροφη οικοδομή στη Νίκαια",
+		"troias": {
+			"title":"Εξαώροφη οικοδομή στη Νίκαια",
 			"category":1,
 			"thumb":"troias.jpg",
 			"images":["troias.jpg"],
@@ -54,8 +54,8 @@ window.sitedata = {
 			"period":"2007| 2008-2009",
 			"overseer":"Α.Μιμίκου| - "
 		},
-		{
-			"title":"ΑΙΣΩΠΟΥ: Κατοικία στη Νεάπολη",
+		"aisopou": {
+			"title":"Κατοικία στη Νεάπολη",
 			"category":1,
 			"thumb":"aisopou.jpg",
 			"images":["aisopou.jpg"],
@@ -63,8 +63,8 @@ window.sitedata = {
 			"period":"2005| 2006",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου "
 		},
-		{
-			"title":"ΑΚΡΟΠΟΛΕΩΣ: Επταώροφη πολυκατοικία στη Νεάπολη",
+		"akropoleos": {
+			"title":"Επταώροφη πολυκατοικία στη Νεάπολη",
 			"category":1,
 			"thumb":"akropoleos.jpg",
 			"images":["akropoleos.jpg"],
@@ -72,8 +72,8 @@ window.sitedata = {
 			"period":"2007| 2008",
 			"overseer":"Α.Μιμίκου| - "
 		},
-		{
-			"title":"ΒΛΑΧΟΥ: Πενταόροφο κτίριο κατοικίας με ισόγειο κατάστημα στον Κορυδαλλό",
+		"vlaxou": {
+			"title":"Πενταόροφο κτίριο κατοικίας με ισόγειο κατάστημα στον Κορυδαλλό",
 			"category":1,
 			"thumb":"vlaxou.jpg",
 			"images":["vlaxou.jpg"],
@@ -81,8 +81,8 @@ window.sitedata = {
 			"period":"1995| 1996",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου "
 		},
-		{
-			"title":"ΓΑΛΑΝΟΥ: Διώροφη μονοκατοικία στη Βάρη",
+		"galanou": {
+			"title":"Διώροφη μονοκατοικία στη Βάρη",
 			"category":1,
 			"thumb":"galanou.jpg",
 			"images":["galanou.jpg"],
@@ -90,8 +90,8 @@ window.sitedata = {
 			"period":"1991| 1992",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου "
 		},
-		{
-			"title":"ΓΑΖΙΑΣ: Διώροφη οικοδομή με ισόγειο κατάστημα στον Κορυδαλλό",
+		"gazias": {
+			"title":"Διώροφη οικοδομή με ισόγειο κατάστημα στον Κορυδαλλό",
 			"category":1,
 			"thumb":"gazias.jpg",
 			"images":["gazias.jpg"],
@@ -99,8 +99,8 @@ window.sitedata = {
 			"period":"2011| 2011-2012",
 			"overseer":"Α.Μιμίκου| Π.Κρουστάλλης "
 		},
-		{
-			"title":"ΚΟΤΣΙΚΑ: Τετραώροφη οικοδομή στην Άνω Γλυφάδα",
+		"kotsika": {
+			"title":"Τετραώροφη οικοδομή στην Άνω Γλυφάδα",
 			"category":1,
 			"thumb":"kotsika.jpg",
 			"images":["kotsika.jpg"],
@@ -108,8 +108,8 @@ window.sitedata = {
 			"period":"1995| -",
 			"overseer":"Α.Μιμίκου| -"
 		},
-		{
-			"title":"ΚΥΠΡΑΙΟΥ: Μονοκατοικία στην Άνω Νεάπολη",
+		"kypraiou": {
+			"title":"Μονοκατοικία στην Άνω Νεάπολη",
 			"category":1,
 			"thumb":"kypraiou.jpg",
 			"images":["kypraiou.jpg"],
@@ -117,8 +117,8 @@ window.sitedata = {
 			"period":"2006| 2007",
 			"overseer":"Α.Μιμίκου| Α.Μιμίκου Π.Κρουστάλλης"
 		},
-		{
-			"title":"ΜΑΓΚΛΑΡΑΣ: Συγκρότημα κατοικιών στην Κρήτη",
+		"maglaras": {
+			"title":"Συγκρότημα κατοικιών στην Κρήτη",
 			"category":1,
 			"thumb":"maglaras.jpg",
 			"images":["maglaras.jpg"],
@@ -126,8 +126,8 @@ window.sitedata = {
 			"period":"2010| -",
 			"overseer":"Α.Μιμίκου| -"
 		},
-		{
-			"title":"ΜΑΥΡΟΥΔΗ: Πενταόροφο κτίριο κατοικιών στον Χολαργό",
+		"mayroudi": {
+			"title":"Πενταόροφο κτίριο κατοικιών στον Χολαργό",
 			"category":1,
 			"thumb":"mayroudi.jpg",
 			"images":["mayroudi.jpg"],
@@ -135,8 +135,8 @@ window.sitedata = {
 			"period":"-| -",
 			"overseer":"Α.Μιμίκου| -"
 		},
-		{
-			"title":"ΠΑΠΑΔΟΠΟΥΛΟΣ: Κτίριο γραφείων με ισόγειο κατάστημα στην οδό Π. Ράλλη",
+		"papadopoulos": {
+			"title":"Κτίριο γραφείων με ισόγειο κατάστημα στην οδό Π. Ράλλη",
 			"category":1,
 			"thumb":"papadopoulos.jpg",
 			"images":["papadopoulos.jpg"],
@@ -144,8 +144,8 @@ window.sitedata = {
 			"period":"2010| -",
 			"overseer":"Π.Κρουστάλλης| -"
 		},
-		{
-			"title":"ΛΟΥΤΡΙΩΤΗΣ: Οκταόροφη οικοδομή στο Κουκάκι.",
+		"loutriotis": {
+			"title":"Οκταόροφη οικοδομή στο Κουκάκι.",
 			"category":1,
 			"thumb":"loutriotis.jpg",
 			"images":["loutriotis.jpg"],
@@ -153,5 +153,5 @@ window.sitedata = {
 			"period":"2004| -",
 			"overseer":"Α.Μιμίκου| -"
 		}
-	]
+	}
 }
