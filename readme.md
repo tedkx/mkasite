@@ -3,5 +3,5 @@
 ----
 ## TODOs
 
-* Menu: Υπομενού κατηγοριών
-* Contact: στοιχεία +χάρτης
+* Αλλαγή τίτλου σελίδας όταν αλλάζει pane
+* Google map smooth transition
