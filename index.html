@@ -48,7 +48,14 @@
 								<li><a href="#">Αρχικη</a></li>
 								<li><a href="#office">Γραφειο</a></li>
 								<li><a href="#services">Υπηρεσιες</a></li>
-								<li><a href="#projects">Εργα</a></li>
+								<li><a href="#projects">Εργα</a>
+									<div class="subnav">
+										<ul class="nav">
+											<li><a href="#private">Ιδιωτικα</a></li>
+											<li><a href="#constructions">Κατασκευες</a></li>
+										</ul>
+									</div>
+								</li>
 								<li><a href="#contact">Επικοινωνια</a></li>
 							</ul>
 						</td>
@@ -113,8 +120,6 @@
 				</table>
 			</div>
 
-
-			<!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
 			<div class="pane" id="projects-pane">
 				<div id="prj-showcase-wrap">
 					<div id="prj-showcase">
@@ -145,9 +150,25 @@
 			<div class="pane" id="contact-pane">
 				<table class="pane-table">
 					<tr>
-						<td class="pane-td">
-							<h2>Επικοινωνία</h2>
-							<div id="contact-wrap"></div>
+						<td class="pane-td" style="padding:40px 40px 40px 10px;">
+							<div id="contact-wrap">
+								<div id="address-map"></div>
+
+								<div class="address-wrap">
+									<div class="address">
+										Γρ. Λαμπράκη 82<br/>
+										Πειραιάς<br/>
+										<br/>
+										<span class="glyphicon glyphicon-phone" aria-hidden="true"></span> +306944525231<br/>
+										<span class="glyphicon glyphicon-phone" style="color:white" aria-hidden="true"></span> +306947070160<br/>
+										<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +302104113055<br/>
+										Fax:&nbsp;+302104113057<br/>
+										<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:annamimi@gmail.com">annamimi@gmail.com</a><br/>
+										<span class="glyphicon glyphicon-envelope" style="color:white" aria-hidden="true"></span> <a href="mailto:parkrou@gmail.com">parkrou@gmail.com</a><br/>
+										<a href="http://www.mkarc.gr">http://www.mkarc.gr</a>
+									</div>
+								</div>
+							</div>
 						</td>
 					</tr>
 				</table>				
@@ -160,6 +181,7 @@
 <script type="text/javascript" src="data/data.js"></script>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/external.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHhr8R3N_lixCxUBgK_HAdp_a3JLU3d3Q" type="text/javascript"></script>
 <script type="text/javascript" src="js/app.js"></script>
 
 </body>
