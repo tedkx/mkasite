@@ -99,7 +99,7 @@ $(document).ready(function() {
 		map = null;
 	$.each(window.sitedata.projects, function(index,item) {
 		var className = item.category == 1 ? 'construction' : 'private';
-		html += '<div class="project-wrap ' + className + '" id="project-' + index + '" title="' + item.title +'" data-category="' + item.category + '"><div class="overlay"></div><img src="' + window.mka.baseurl + "assets/" + item.thumb + '" alt="' + item.title + '" /><div class="caption-wrap"><div class="caption">' + item.title + '</div></div></div>';
+		html += '<div class="project-wrap ' + className + '" id="project-' + index + '" title="' + item.title +'" data-category="' + item.category + '"><div class="overlay"></div><img src="' + window.mka.baseurl + "img/thumbs/" + item.thumb + '" alt="' + item.title + '" /><div class="caption-wrap"><div class="caption">' + item.title + '</div></div></div>';
 	});
 	projects.html(html);
 
@@ -162,7 +162,10 @@ $(document).ready(function() {
 		toggleSubList(isProjects ? 'show' : 'hide');
 
 		if(window.mka.currentPaneId == targetPaneId && !window.mka.firstLoad) {
-			if(isProjects) projects.isotope({ filter: filter });
+			if(isProjects) {
+				projects.isotope({ filter: filter });
+				if(scw.hasClass('showcasing')) $('#prj-showcase-close').click();
+			}
 			return false;
 		}
 		window.mka.currentPaneId = targetPaneId;
@@ -191,7 +194,6 @@ $(document).ready(function() {
 
 	//close button transition
 	$('#prj-showcase-close').on('click',function() { 
-		//setShowcaseHeight();
 		TweenLite.to(scw[0], window.mka.projectTransitionDur, { height:0, opacity:0, ease: Power3.easeOut, onComplete: function() {
 			scw.removeClass('showcasing');
 		} });
@@ -201,7 +203,7 @@ $(document).ready(function() {
 	var showcaseProject = function(id) {
 		var html = '',
 			prj = window.sitedata.projects[id];
-		for(var i = 0; i < prj.images.length; i++) { html += '<div><img src="' + window.mka.baseurl + 'assets/' + prj.images[i] + '" /></div>'; }
+		for(var i = 0; i < prj.images.length; i++) { html += '<div><img src="' + window.mka.baseurl + 'img/photos/' + prj.images[i] + '" /></div>'; }
 		sc_title.html(prj.title);
 		sc_content.html(prj.content);
 		if(sc_carousel.hasClass('slick-initialized')) sc_carousel.slick('unslick');
