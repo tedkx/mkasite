@@ -85,6 +85,8 @@ window.mka = {
 $(document).ready(function() {
 	var urlparts = (window.location + '').split('/#'),
 		html = '',
+		menuButton = $('.navbar-toggle'),
+		homeLink = $('ul.nav.nav-sidebar li a[href=#]'),
 		projects = $('#projects'),
 		scw = $('#prj-showcase-wrap'),
 		sc = scw.find('#prj-showcase'),
@@ -152,8 +154,11 @@ $(document).ready(function() {
 	};
 
 	//action when menu items clicked
-	var switchPane = function(href) {
-		var isProjects = window.mka.projectIds.indexOf(href) >= 0,
+	var switchPane = function($elem) {
+		document.title = $elem.text() + " | MKA";
+		if(menuButton.attr('aria-expanded') == 'true') menuButton.click();
+		var href = $elem.attr('href'),
+			isProjects = window.mka.projectIds.indexOf(href) >= 0,
 			targetPaneId = isProjects ? '#projects-pane' : (href == '#' ? '#home' : href) + '-pane',
 			filter = href == '#private' ? '.private' : href == '#constructions' ? '.construction' : '',
 			fromPane = $(window.mka.currentPaneId),
@@ -182,10 +187,8 @@ $(document).ready(function() {
 	};
 
 	//menu item click transition
-	$('.sidebar#menubar').find('ul.nav-sidebar').on('click', 'li a', function(evt) {
-		switchPane($(this).attr('href'));
-	});
-	$('a.navbar-brand').click(function(evt) { switchPane('#home-pane'); })
+	$('.sidebar#menubar').find('ul.nav-sidebar').on('click', 'li a', function(evt) { switchPane($(this)); });
+	$('a.navbar-brand').click(function(evt) { switchPane(homeLink); })
 
 	//item height setters before project showcase transition
 	var setShowcaseAutoHeight = function() { return scw.height('auto'); };
@@ -238,6 +241,6 @@ $(document).ready(function() {
 
 	//initial pane
 	var initial = $('ul.nav.nav-sidebar li a[href=#' + (urlparts.length > 1 ? urlparts[1] : '') + ']');
-	if(initial.length == 0) initial = $('ul.nav.nav-sidebar li a[href=#]');
+	if(initial.length == 0) initial = homeLink;
 	initial.click();
 });

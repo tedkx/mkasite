@@ -3,5 +3,4 @@
 ----
 ## TODOs
 
-* Αλλαγή τίτλου σελίδας όταν αλλάζει pane
-* Google map smooth transition
+* Google map smooth transition / preloading
