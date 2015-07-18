@@ -1,12 +1,13 @@
 window.mka = {
+	baseUrl: (window.location.href + '').split('#')[0],
 	currentPaneId: '#home-pane',
 	firstLoad: true,
 	mapCenter: { lat: 37.943497, lng: 23.6521346 },
 	paneTransitionDur: 0.6,
-	projectIds: ['#projects','#private','#constructions'],
+	projectCache: { },
+	projectIds: ['#projects','#private','#constructions','#subprojects'],
 	projectTransitionDur: 0.5,
 	projectsInitialized: false,
-	supportsCssTransitions: typeof((document.body || document.documentElement).style.transition) === 'string',
 	map: null,
 	mapStyles: [
 		{
@@ -99,14 +100,21 @@ $(document).ready(function() {
 		mapdiv = $('#address-map'),
 		map = null;
 	$.each(window.sitedata.projects, function(index,item) {
-		var className = item.category == 1 ? 'construction' : 'private';
+		var className = item.category == 1 ? 'construction' : item.category == 2 ? 'subproject' : 'private';
 		html += '<div class="project-wrap ' + className + '" id="project-' + index + '" title="' + item.title +'" data-category="' + item.category + '"><div class="overlay"></div><img src="img/thumbs/' + item.thumb + '" alt="' + item.title + '" /><div class="caption-wrap"><div class="caption">' + item.title + '</div></div></div>';
 	});
 	projects.html(html);
 
+	var loadImage = function(src) { var img = new Image();img.src = src; }
+	var preloadImgs = function() {
+		$.each(window.sitedata.projects, function(index, item) {
+			$.each(item.images, function(imgIndex, img) { loadImage(window.mka.baseUrl + '/img/photos/' + img); });
+			loadImage(window.mka.baseUrl + '/img/thumbs/' + item.thumb);
+		});
+	};
+	
 	//transition functions
 	var homeLogoAnimationFn = function(showHide) { 
-		console.log('js showhide',showHide);
 		var logo = $('#logo');
 		if(showHide === 'hide' && logo.height() > 0) {
 			TweenLite.to(logo[0], window.mka.paneTransitionDur, { height: 0, ease: Power3.easeIn });
@@ -121,7 +129,6 @@ $(document).ready(function() {
 		var toId = $toPane.attr('id');
 		if(toId === 'projects-pane') {
 			$toPane.scrollTop(0);
-			console.log('settings filter ' + filter);
 			projects.isotope({ layoutMode: 'fitRows', filter: filter, transitionDuration: '0.6s' });
 		} else if (toId === 'contact-pane' && window.mka.map == null) {
 	        window.mka.map = new google.maps.Map(mapdiv[0], {
@@ -141,7 +148,6 @@ $(document).ready(function() {
 	//submenu expand-collapse
 	var toggleSubList = function(showHide) {
 		if(showHide == 'show' && !subdiv.hasClass('expanded')) {
-			console.log('expanding');
 			TweenLite.to(subdiv[0], 0.4, { height: (sublist.height() + 4) + 'px', ease: Power3.easeOut, onComplete: function() {
 				subdiv.addClass('expanded');
 			} });
@@ -149,7 +155,6 @@ $(document).ready(function() {
 			TweenLite.to(subdiv[0], 0.4, { height: 0, ease: Power3.easeOut, onComplete: function() {
 				subdiv.removeClass('expanded');
 			} });
-			console.log('collapsing');
 		}
 	};
 
@@ -160,7 +165,7 @@ $(document).ready(function() {
 		var href = $elem.attr('href'),
 			isProjects = window.mka.projectIds.indexOf(href) >= 0,
 			targetPaneId = isProjects ? '#projects-pane' : (href == '#' ? '#home' : href) + '-pane',
-			filter = href == '#private' ? '.private' : href == '#constructions' ? '.construction' : '',
+			filter = href == '#private' ? '.private' : href == '#constructions' ? '.construction' : href == '#subprojects' ? '.subproject' : '',
 			fromPane = $(window.mka.currentPaneId),
 			toPane = $(targetPaneId);
 		toggleSubList(isProjects ? 'show' : 'hide');
@@ -205,7 +210,16 @@ $(document).ready(function() {
 	var showcaseProject = function(id) {
 		var html = '',
 			prj = window.sitedata.projects[id];
-		for(var i = 0; i < prj.images.length; i++) { html += '<div><img src="img/photos/' + prj.images[i] + '" /></div>'; }
+		if(window.mka.projectCache[id]) {
+			html = window.mka.projectCache[id];
+		} else {	
+			if(Modernizr.backgroundsize === true) {
+				$.each(prj.images, function(idx, src) { html += '<div class="img" style="background-image:url(\'img/photos/' + src + '\');"></div>'; });
+			} else {
+				$.each(prj.images, function(imgIndex, imgsrc) { html += '<div><img src="img/photos/' + imgsrc + '" /></div>'; });
+			}
+			window.mka.projectCache[id] = html;
+		}
 		sc_title.html(prj.title);
 		sc_content.html(prj.content);
 		if(sc_carousel.hasClass('slick-initialized')) sc_carousel.slick('unslick');
@@ -243,4 +257,6 @@ $(document).ready(function() {
 	var initial = $('ul.nav.nav-sidebar li a[href=#' + (urlparts.length > 1 ? urlparts[1] : '') + ']');
 	if(initial.length == 0) initial = homeLink;
 	initial.click();
+
+	preloadImgs();
 });
