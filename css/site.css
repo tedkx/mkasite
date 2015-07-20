@@ -1,6 +1,12 @@
+@font-face {
+    font-family: CaviarDreams;
+    src: url(../fonts/CaviarDreams.ttf);
+    font-weight:400;
+}
+
 body {
 	padding-top:80px;
-	font-family:'Comfortaa', sans-serif;
+	font-family:'CaviarDreams', sans-serif;
 	font-size:14px;
 }
 
@@ -58,6 +64,7 @@ h2 { padding-left:25px; }
 	-webkit-box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
 	-moz-box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
 	box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
+	font-family:'Comfortaa', sans-serif;
 }
 
 #menubar>table {
