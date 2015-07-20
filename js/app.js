@@ -92,7 +92,6 @@ $(document).ready(function() {
 		scw = $('#prj-showcase-wrap'),
 		sc = scw.find('#prj-showcase'),
 		margin = parseInt(sc.css('margin-top').replace('px','')) + parseInt(sc.css('margin-bottom').replace('px','')) + parseInt($('#prj-showcase-separator').height()),
-		sc_title = $('#prj-showcase-title'),
 		sc_content = $('#prj-showcase-content'),
 		sc_carousel = sc.find('#prj-showcase-carousel'),
 		sublist = $('.subnav ul'),
@@ -220,8 +219,7 @@ $(document).ready(function() {
 			}
 			window.mka.projectCache[id] = html;
 		}
-		sc_title.html(prj.title);
-		sc_content.html(prj.content);
+		sc_content.html('<div id="prj-showcase-title">' + prj.title + '</div>' + prj.content);
 		if(sc_carousel.hasClass('slick-initialized')) sc_carousel.slick('unslick');
 		sc_carousel.html(html).slick({ dots:true, slidesToShow:1, variableWidth:true, adaptiveHeight: true });
 	};
