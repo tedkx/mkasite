@@ -109,6 +109,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 }());
 
 $( function() {
+	if(!document.getElementById( 'spiders' )) return;
 	//return;
     var width, height, canvas, ctx, points, target, animateHeader = true,colorpart='rgba(160,160,160,',pointarg = 15;
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slick test</title>
+	<link rel="stylesheet" type="text/css" href="css/slick.css">
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+	<style type="text/css">
+	#wrap {
+		margin-left:250px;
+		padding-left:15px;
+		border-left:solid 1px #EEE;
+	}
+	#slickwrap {
+		/*width:100%;
+		height:100%;
+		*/
+	}
+	#slickwrap .slicker {
+		/*
+		width: 100%;
+		height:100%;
+		*/
+	}
+
+	#slickwrap .slicker img {
+		/*
+		width:100%;
+		height:100%;
+		*/
+	}
+
+	#slickwrap .slicker .img {
+
+	}
+	</style>
+</head>
+<body>
+
+<div id="wrap">
+	<div id="slickwrap">
+		<div class="img"><img src="img/photos/dodekanisou.jpg"/></div>
+		<div class="img"><img src="img/photos/katsoni.jpg"/></div>
+		<div class="img"><img src="img/photos/katsoni.jpg"/></div>
+		<div class="img"><img src="img/photos/maglaras.jpg"/></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="data/data.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/external.js"></script>
+<script>
+$(document).ready(function() {
+	var ratio = 1.315;
+	var div = $('#wrap');
+	var imgs = $('#slickwrap .img,#slickwrap .img img');
+	var sizeimg = function() {
+		imgs.css({ width: (div.width() - 100) + 'px', height: (div.height() - 100) + 'px' });
+	}
+	$(window).resize(function() { 
+		sizeimg();
+	});
+
+	sizeimg();
+
+	$('#slickwrap').slick({ 
+		dots:true, 
+		slidesToShow:1,
+		variableWidth:true 
+		//adaptiveHeight: true 
+	});
+});
+</script>
+</body>
+</html>

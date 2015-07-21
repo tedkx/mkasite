@@ -383,8 +383,8 @@ h2 {
 
 #prj-showcase-carousel-wrap {
 	margin:7px auto 45px;
-	width:300px;
-	height:228px;
+	width:260px;
+	height:198px;
 	box-sizing:border-box;
 	-webkit-box-shadow: 0px 0px 10px 5px rgba(204,204,204,1);
 	-moz-box-shadow: 0px 0px 10px 5px rgba(204,204,204,1);
@@ -393,16 +393,16 @@ h2 {
 }
 
 #prj-showcase-carousel div, #prj-showcase-carousel img {
-	width:300px;
-	height:228px;
+	width:260px;
+	height:198px;
 }
 
 #prj-showcase-carousel .img {
 	background-size:contain;
 	background-repeat:no-repeat;
 	background-position:center center;
-	width:300px;
-	height:228px;
+	width:260px;
+	height:198px;
 }
 
 #prj-showcase-content-wrap {
@@ -441,9 +441,9 @@ h2 {
 #contact-wrap .address-wrap-small .address {
 	float:left;
 	width:49%;
-	border-right:solid 1px #CCC;
+	border-right:solid 1px #E6E6E6;
 	margin-bottom: 25px;
-	font-size:13px;
+	font-size:12px;
 }
 
 #contact-wrap .address-wrap-small .address.address-right {
@@ -454,6 +454,18 @@ h2 {
 #contact-wrap #address-map {
 	height:100%;
 	min-height:400px;
+}
+
+@media (min-width: 500px) {
+	#prj-showcase-carousel-wrap, #prj-showcase-carousel div, 
+	#prj-showcase-carousel img, #prj-showcase-carousel .img {
+		width:415px;
+		height:315px;
+	}
+
+	#contact-wrap .address-wrap-small .address {
+		font-size:13px;
+	}
 }
 
 @media (min-width: 768px) {
