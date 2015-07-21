@@ -10,9 +10,13 @@ body {
 	font-size:14px;
 }
 
-h2 { padding-left:25px; }
+h2 { 
+	padding-left:25px; 
+}
 
-.clearer { clear:both; }
+.clearer { 
+	clear:both; 
+}
 
 #spiders {
 	position: absolute;
@@ -64,7 +68,6 @@ h2 { padding-left:25px; }
 	-webkit-box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
 	-moz-box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
 	box-shadow: 0px 4px 8px 0px rgba(200,200,200,1);
-	font-family:'Comfortaa', sans-serif;
 }
 
 #menubar>table {
@@ -196,10 +199,18 @@ h2 { padding-left:25px; }
 	color:#555;
 }
 
-.pane table.pane-table { width:100%;height:100%; }
-.pane table.pane-table td.pane-td { vertical-align:middle;height:100%;width:100%; }
-.pane p { text-align: justify; padding:8px 25px 25px; }
-.pane h4 { font-weight: bold;padding-left:25px;margin-bottom:0;font-size:16px; }
+.pane table.pane-table { 
+	width:100%;height:100%; 
+}
+.pane table.pane-table td.pane-td { 
+	vertical-align:middle;height:100%;width:100%; 
+}
+.pane p { 
+	text-align: justify; padding:8px 0 25px; 
+}
+.pane h4 { 
+	font-weight: bold;;margin-bottom:0;font-size:16px; 
+}
 
 /* Home Pane */
 #home-wrap {
@@ -250,7 +261,6 @@ h2 { padding-left:25px; }
 	margin-bottom:10px;
 	padding-bottom:10px;
 	border-bottom:solid 1px #AAA;
-	font-family:'Comfortaa', sans-serif;
 }
 
 #prj-showcase-close {
@@ -433,6 +443,7 @@ h2 { padding-left:25px; }
 	width:49%;
 	border-right:solid 1px #CCC;
 	margin-bottom: 25px;
+	font-size:13px;
 }
 
 #contact-wrap .address-wrap-small .address.address-right {
@@ -503,6 +514,14 @@ h2 { padding-left:25px; }
 	#menubar>table td ul {
 		margin-right:0;
 		margin-left:0;
+	}
+
+	.pane p { 
+		padding:8px 25px 25px; 
+	}
+
+	.pane h4 {
+		padding-left:25px
 	}
 
 	#home-wrap {
