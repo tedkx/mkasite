@@ -250,7 +250,7 @@ h2 {
 #prj-showcase {
 	padding-top:15px; 
 	position:relative;
-	margin:20px 30px 30px;
+	margin:20px 15px 30px;
 }
 
 #prj-showcase-title {
@@ -483,6 +483,7 @@ h2 {
 	}
 
 	#prj-showcase {
+		margin:20px 30px 30px 0;
 		margin-left:0;
 		padding-top:0;
 	}
