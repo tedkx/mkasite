@@ -93,6 +93,7 @@ $(document).ready(function() {
 		sc = scw.find('#prj-showcase'),
 		margin = parseInt(sc.css('margin-top').replace('px','')) + parseInt(sc.css('margin-bottom').replace('px','')) + parseInt($('#prj-showcase-separator').height()),
 		sc_content = $('#prj-showcase-content'),
+		sc_footer = $('#prj-showcase-footer'),
 		sc_carousel = sc.find('#prj-showcase-carousel'),
 		sublist = $('.subnav ul'),
 		subdiv = sublist.parent(),
@@ -205,6 +206,11 @@ $(document).ready(function() {
 		} });
 	});	
 
+	var parseFooterData = function(arg) {
+		var data = arg.split('|');
+		return data.length > 1 ? data : [data[0],''];
+	}
+
 	//load project to showcase ui
 	var showcaseProject = function(id) {
 		var html = '',
@@ -220,6 +226,12 @@ $(document).ready(function() {
 			window.mka.projectCache[id] = html;
 		}
 		sc_content.html('<div id="prj-showcase-title">' + prj.title + '</div>' + prj.content);
+		var period = parseFooterData(prj.period),
+			persons = parseFooterData(prj.overseer);
+		sc_footer.find('#prj-showcase-footer-research').text(period[0]);
+		sc_footer.find('#prj-showcase-footer-construction').text(period[1]);
+		sc_footer.find('#prj-showcase-footer-researcher').text(persons[0]);
+		sc_footer.find('#prj-showcase-footer-overseer').text(persons[1]);
 		if(sc_carousel.hasClass('slick-initialized')) sc_carousel.slick('unslick');
 		sc_carousel.html(html).slick({ dots:true, slidesToShow:1, variableWidth:true, adaptiveHeight: true });
 	};
