@@ -4,6 +4,12 @@
     font-weight:400;
 }
 
+@font-face {
+    font-family: CaviarDreams;
+    src: url(../fonts/CaviarDreams_Bold.ttf);
+    font-weight:700;
+}
+
 body {
 	padding-top:80px;
 	font-family:'CaviarDreams', sans-serif;
@@ -11,11 +17,23 @@ body {
 }
 
 h2 { 
-	padding-left:25px; 
+	font-size:24px;
+	border-bottom:solid 1px #CCC;
+	display:block;
+	padding-bottom: 5px;
+	margin:0 23px 10px;
+}
+#office-pane h2 {
+	font-size:16px;
+	margin-bottom:0;
 }
 
 .clearer { 
 	clear:both; 
+}
+
+.small-title {
+	font-weight:bold;
 }
 
 #spiders {
@@ -102,12 +120,13 @@ h2 {
 	color:#4A4A4A;
 	font-weight:400;
 	font-size:14px;
-	color:#555;
+	color:#222;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 	display: inline;
 	line-height:33px;
 	margin-left:25px;
+	outline:none;
 }
 .nav-sidebar li a:hover {
 	color: #428bca;
@@ -196,7 +215,7 @@ h2 {
 	padding-top:50px;
 	opacity: 0;
 	display:none;
-	color:#555;
+	color:#222;
 }
 
 .pane table.pane-table { 
@@ -301,7 +320,7 @@ h2 {
 }
 
 .project-wrap .overlay {
-	background-color:rgba(128,128,128,0.4);
+	background-color:rgba(255,255,255,0.3);
 	opacity:0;
 	-webkit-transition: opacity 0.3s;
 	-moz-transition: opacity 0.3s;
@@ -389,7 +408,6 @@ h2 {
 	-webkit-box-shadow: 0px 0px 10px 5px rgba(204,204,204,1);
 	-moz-box-shadow: 0px 0px 10px 5px rgba(204,204,204,1);
 	box-shadow: 0px 0px 10px 5px rgba(204,204,204,1);
-	background-color:#F5F5F5;
 }
 
 #prj-showcase-carousel div, #prj-showcase-carousel img {
@@ -416,7 +434,7 @@ h2 {
 
 /* Contact pane */
 #contact-pane .pane-td,#office-pane .pane-td,#services-pane .pane-td {
-	padding:40px;
+	padding:20px;
 }
 
 #contact-wrap {
