@@ -17,14 +17,13 @@ body {
 }
 
 h2 { 
-	font-size:24px;
+	font-size:20px;
 	border-bottom:solid 1px #CCC;
 	display:block;
 	padding-bottom: 5px;
 	margin:0 23px 10px;
 }
 #office-pane h2 {
-	font-size:16px;
 	margin-bottom:0;
 }
 
