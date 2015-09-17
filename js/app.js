@@ -91,6 +91,7 @@ $(document).ready(function() {
 		projects = $('#projects'),
 		scw = $('#prj-showcase-wrap'),
 		sc = scw.find('#prj-showcase'),
+		prjpane = $('#projects-pane'),
 		margin = parseInt(sc.css('margin-top').replace('px','')) + parseInt(sc.css('margin-bottom').replace('px','')) + parseInt($('#prj-showcase-separator').height()),
 		sc_content = $('#prj-showcase-content'),
 		sc_footer = $('#prj-showcase-footer'),
@@ -238,8 +239,9 @@ $(document).ready(function() {
 
 	//event listener on project thumbs
 	projects.on('click','.project-wrap',function() {
-		var id = $(this).attr('id').replace('project-','');
-		TweenLite.to('#projects-pane', window.mka.projectTransitionDur, { scrollTop: 0, ease: Power3.easeOut });
+		var id = $(this).attr('id').replace('project-',''),
+			scrollable = prjpane.css('position') == 'fixed' ? '#projects-pane' : 'body';
+ 		TweenLite.to(scrollable, window.mka.projectTransitionDur, { scrollTop: 0, ease: Power3.easeOut });
 		if(!scw.hasClass('showcasing')) {
 			showcaseProject(id);
 			scw.addClass('showcasing');
