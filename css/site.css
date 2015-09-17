@@ -417,7 +417,12 @@ h2 {
 	transition: transform 0.4s, opacity 0.4s;
 }
 
-.project-wrap .caption-wrap .caption { padding:8px; }
+.project-wrap .caption-wrap.three-lines {
+	height:70px;
+}
+.project-wrap .caption-wrap .caption { padding:22px 16px; }
+.project-wrap .caption-wrap.two-lines .caption { padding:11px; }
+.project-wrap .caption-wrap.three-lines .caption { padding:5px; }
 
 #prj-showcase-carousel-wrap {
 	margin:7px auto 45px;
@@ -604,6 +609,11 @@ h2 {
 		margin-right:30px;
 		margin-bottom:30px;
 	}
+
+	.project-wrap .caption-wrap.three-lines { height:70px; }
+	.project-wrap .caption-wrap .caption { padding:22px 16px; }
+	.project-wrap .caption-wrap.two-lines .caption { padding:11px; }
+	.project-wrap .caption-wrap.three-lines .caption { padding:5px; }
 
 	.project-wrap .img, .project-wrap img {
 		height:180px;

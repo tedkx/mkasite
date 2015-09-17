@@ -102,9 +102,23 @@ $(document).ready(function() {
 		map = null;
 	$.each(window.sitedata.projects, function(index,item) {
 		var className = item.category == 1 ? 'construction' : item.category == 2 ? 'subproject' : 'private';
-		html += '<div class="project-wrap ' + className + '" id="project-' + index + '" title="' + item.title +'" data-category="' + item.category + '"><div class="overlay"></div><img src="img/thumbs/' + item.thumb + '" alt="' + item.title + '" /><div class="caption-wrap"><div class="caption">' + item.title + '</div></div></div>';
+			linesClass = (item.title.length > 33) ? ' three-lines' : (item.title.length > 20) ? ' two-lines' : '';
+		html += '<div class="project-wrap ' + className + '" id="project-' + index + '" title="' + item.title +'" data-category="' + item.category + '"><div class="overlay"></div><img src="img/thumbs/' + item.thumb + '" alt="' + item.title + '" /><div class="caption-wrap' + linesClass + '"><div class="caption">' + item.title + '</div></div></div>';
 	});
 	projects.html(html);
+	/*
+	setTimeout(function() {
+		$('#projects').find('.caption').each(function(idx,caption) {
+			var $caption = $(caption),
+				lines = parseInt($caption.height() / parseInt($caption.css('line-height')));
+			console.log($caption.height(), parseInt($caption.css('line-height')),lines,$caption.closest('.project-wrap').attr('id'));
+			//console.log($caption.parent().height(),$caption.height(),$caption.css('line-height'));
+			//console.log($caption.height(), $caption.css('line-height'),parseInt($caption.height()) / parseInt($caption.css('line-height')));
+			if(lines > 1) $caption.parent().addClass(lines == 2 ? 'two-lines' : 'three-lines');
+
+		});
+	},50);
+	*/
 
 	var loadImage = function(src) { var img = new Image();img.src = src; }
 	var preloadImgs = function() {
