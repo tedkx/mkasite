@@ -186,6 +186,7 @@ $(document).ready(function() {
 			transitionCallbackFn(fromPane,toPane, filter);
 			window.mka.firstLoad = false;
 		} else {
+			dataLayer.push({ event: 'pageView', virtualUrl: '/' + (href == '#' ? 'index' : href) + '.html' });
 			TweenLite.to('#' + fromPane.attr('id'), 0.5, { paddingTop: "50px", opacity:0, ease: Power3.easeInOut, onComplete: function() {
 				transitionCallbackFn(fromPane,toPane, filter);
 			}  });
@@ -227,6 +228,7 @@ $(document).ready(function() {
 			}
 			window.mka.projectCache[id] = html;
 		}
+		dataLayer.push({ event: 'projectView', projectTitle: prj.title });
 		sc_content.html('<div id="prj-showcase-title">' + prj.title + '</div>' + prj.content);
 		var period = parseFooterData(prj.period),
 			persons = parseFooterData(prj.overseer);
