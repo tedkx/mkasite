@@ -174,6 +174,7 @@ $(document).ready(function() {
 
 		if(window.mka.currentPaneId == targetPaneId && !window.mka.firstLoad) {
 			if(isProjects) {
+				dataLayer.push({ event: 'pageView', virtualUrl: '/' + (href == '#' ? '' : href + '.html' ) });
 				projects.isotope({ filter: filter });
 				if(scw.hasClass('showcasing')) $('#prj-showcase-close').click();
 			}
@@ -186,7 +187,7 @@ $(document).ready(function() {
 			transitionCallbackFn(fromPane,toPane, filter);
 			window.mka.firstLoad = false;
 		} else {
-			dataLayer.push({ event: 'pageView', virtualUrl: '/' + (href == '#' ? 'index' : href) + '.html' });
+			dataLayer.push({ event: 'pageView', virtualUrl: '/' + (href == '#' ? '' : href + '.html' ) });
 			TweenLite.to('#' + fromPane.attr('id'), 0.5, { paddingTop: "50px", opacity:0, ease: Power3.easeInOut, onComplete: function() {
 				transitionCallbackFn(fromPane,toPane, filter);
 			}  });
