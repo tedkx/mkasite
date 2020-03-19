@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head class="no-js">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MKA Architects">
+    <meta name="author" content="MKA Architects">
+
+    <title>Αρχική | MKA</title>
+
+    <link rel="stylesheet" type="text/css" href="css/new.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <div id="menu-wrap"><img src="img/logo-menu.png" /></div>
+        <div id="content-wrap">
+            <div id="content">
+                <div id="projects"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/imagesLoaded-4.1.4.min.js"></script>
+    <script src="js/isotope-3.0.6.min.js"></script>
+    <script>
+        var projects = Array.from(Array(9)).map((_, i) => ({
+            img: `img/thumbnails/${i + 1}.png`
+        }));
+        var isotopeOpts = { 
+            percentPosition: true, 
+            masonry: { 
+                columnWidth: '.projects-sizer', 
+                gutter: 8 
+            } 
+        };
+
+        $(document).ready(function () {
+            var $content = $('#content');
+
+            $content.html(`<div class="projects-list">
+                <div class="projects-sizer"></div>
+                    ${projects.map((p, i) => `
+                        <div class="project">
+                            <div class="overlay">
+                                <span>Project #${i}</span>
+                            </div>
+                            <img src="${p.img}" />
+                        </div>
+                    `).join('')}
+                </div>`);
+
+            var $list = $content.find('.projects-list')
+
+            $list.on('click', '.project', function(e) {
+                $list.parent().append($('<div>').append($(e.currentTarget).clone()).html());
+                setTimeout(function() { 
+                    var project = $content.find('>.project');
+                    $list.removeClass('visible')
+                    project.find('.overlay').remove();
+                    project.addClass('active-project').removeClass('project').addClass('active'); 
+                });
+            })
+
+            $list.isotope(isotopeOpts);
+            
+            $list.imagesLoaded().progress( function() {
+                $list.isotope('layout');
+            }).always(() => {
+                setTimeout(function () {
+                    $list.addClass('visible');
+                }, 300);
+            })
+
+            $(window).on('click', function(e) {
+                var elem = $('.active-project');
+                if(elem[0]) {
+                    elem.remove();
+                    $list.addClass('visible');
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
