@@ -31,7 +31,7 @@ body {
     margin-left: 330px;
 }
 #content {
-    background-color: #FFF;
+    background-color: transparent;
     overflow: hidden;
     position: relative;
     transition: background-color 1s cubic-bezier(0.23, 1, 0.32, 1);
@@ -122,6 +122,7 @@ body {
 
 /* Selected Project */
 #project {
+    background-color: transparent;
     height: 0;
     opacity: 0;
     overflow: hidden;
@@ -130,4 +131,30 @@ body {
 #project.visible {
     height: auto;
     opacity: 1;
+}
+#project>* { overflow: hidden; }
+
+/* Template: .parallax1 */
+#project.parallax1 .hero { position: relative; }
+#project.parallax1 .hero h1 {
+    background-color: rgba(255, 255, 255, 0.3);
+    left:20%;
+    padding: 25px;
+    position: absolute;
+    right: 20%;
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+    top: 50%;
+    transform: translateY(-50%);
+}
+#project.parallax1 .section { 
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    min-height: 200px;
+    padding: 50px;
+}
+
+#project.parallax1 .parallax-container {
+    min-height: 400px;
+    background: transparent;
 }
