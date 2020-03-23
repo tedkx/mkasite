@@ -12,8 +12,10 @@
 
 html, body { margin: 0; padding: 0; }
 body {
-	font-family:'CaviarDreams', sans-serif;
-	font-size:14px;
+    font-family: 'CaviarDreams', sans-serif;
+    font-family: 'Arimo', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size:14px;
 }
 
 #menu-wrap {
@@ -123,10 +125,12 @@ body {
 /* Selected Project */
 #project {
     background-color: transparent;
-    height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all .5s cubic-bezier(0.23, 1, 0.32, 1), height 0s;
+    transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#project.dormant {
+    height: 0;
 }
 #project.visible {
     height: auto;
@@ -134,10 +138,9 @@ body {
 }
 #project>* { overflow: hidden; }
 
-/* Template: .parallax1 */
-#project.parallax1 .hero { position: relative; }
-#project.parallax1 .hero h1 {
-    background-color: rgba(255, 255, 255, 0.3);
+#project .hero { position: relative; }
+#project .hero h1 {
+    background-color: rgba(0, 0, 0, 0.5);
     left:20%;
     padding: 25px;
     position: absolute;
@@ -146,6 +149,63 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+
+#project-footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom-link {
+    align-items: center;
+    color: #AAA;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    padding: 35px;
+    width: 33.33%;
+}
+#previous-project { padding-left: 20px; }
+#project-tolist {
+    display: flex;
+    justify-content: center;
+}
+#next-project { 
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    text-align: right; 
+}
+.bottom-link i {
+    color: #000;
+    font-size: 22px;
+    margin: 0 15px;
+    transform: translateX(0);
+    transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#next-project:hover i { transform: translateX(10px); }
+#previous-project:hover i { transform: translateX(-10px); }
+
+.bottom-link > div > span {
+    color: #000;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: color 0.5s;
+    white-space: nowrap;
+}
+.bottom-link:hover > div > span {
+    color: #AAA;
+}
+
+#project-spacer {
+    height: 80px;
+}
+
+/* Template resets */
+#project .parallax-container { display: none; }
+
+/* Template: .parallax1 */
 #project.parallax1 .section { 
     align-items: center;
     display: flex;
@@ -153,8 +213,119 @@ body {
     min-height: 200px;
     padding: 50px;
 }
-
 #project.parallax1 .parallax-container {
+    display: block;
     min-height: 400px;
     background: transparent;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* Template: image-sections1 */
+#project.image-sections1 .description {
+    padding: 55px;
+    font-size: 22px;
+    line-height: 30px;
+}
+#project.image-sections1 .section {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+}
+#project.image-sections1 .section.dark {
+    background-color: rgba(0,0,0,0.4);
+}
+#project.image-sections1 .section img{
+    width: 100%;
+}
+#project.image-sections1 .section .caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+    font-weight: bold;
+    left: 50px;
+    line-height: normal;
+    opacity: 0;
+    padding: 25px;
+    position: absolute;
+    top: 50px;
+    transform: translateY(50px);
+    transition: all .7s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 28%;
+}
+#project.image-sections1 .section .caption.reached {
+    opacity: 1;
+    transform: translateY(0);
+}
+#project.image-sections1 .section .caption.right {
+    left: auto;
+    right: 50px;
+}
+#project.image-sections1 .section .caption.bottom {
+    top: auto;
+    bottom: 50px;
+}
+
+/* Template: image-sections2 */
+#project.image-sections2 .description {
+    padding: 55px;
+    font-size: 22px;
+    line-height: 30px;
+}
+#project.image-sections2 .section {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+#project.image-sections2 .section.caption {
+    padding: 55px;
+    font-size: 22px;
+    line-height: 30px;
+}
+#project.image-sections2 .section img{
+    width: 100%;
+}
+
+/* Template: money-shot */
+#project.money-shot1 .hero {
+    background-position: bottom right;
+    background-size: cover;
+    height: 200px;
+    overflow: hidden;
+}
+#project.money-shot1 .row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+#project.money-shot1 .row>.block {
+    box-sizing: content-box;
+    padding: 0 7px;
+    width: 50%;
+}
+#project.money-shot1 .block img {
+    width: 100%;
+}
+#project.money-shot1 .image-block {
+    cursor: pointer;
+    transform: scale(1);
+    transition: all .7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#project.money-shot1 .image-block:hover { 
+    transform: scale(1.05);
+    z-index: 1;
+}
+#project.money-shot1 .image-block.small:hover { 
+    transform: scale(1.15);
+    z-index: 1;
+}
+#project.money-shot1 .block.description {
+    font-size: 32px;
+    font-weight: bold;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
