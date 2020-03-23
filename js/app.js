@@ -49,10 +49,6 @@ $(document).ready(function () {
         return false;
     }
 
-    function getImageUrl(url, project) {
-        return '/img/projects/' + project.id + '/' + url;
-    }
-
     function scrollToTop(e) {
         if(e && e.preventDefault) e.preventDefault();
         if($content[0].scrollIntoView)
@@ -207,13 +203,13 @@ $(document).ready(function () {
                 var getImageElem = function(imageObj) {
                     return '<div class="block image-block">' +
                         template.imageContainer
-                        .replace('{image}', getImageUrl(imageObj.img, project))
-                        .replace('{thumbnail}', getImageUrl(imageObj.thumb, project)) +
+                        .replace('{image}', imageObj.img)
+                        .replace('{thumbnail}', imageObj.thumb) +
                         '</div>';
                 }
                 
                 $projectTemplate.html(template.hero
-                        .replace('{heroImage}', getImageUrl(project.heroImage, project)) +
+                        .replace('{heroImage}', project.heroImage) +
                     '<div class="block" style="margin: 25px 0">' + 
                         '<div class="row">' +
                             '<div class="block">' +
@@ -263,7 +259,7 @@ $(document).ready(function () {
                     <div class="overlay">
                         <span>${p.shortTitle}</span>
                     </div>
-                    <img src="/img/thumbnails/${p.thumbnail}" />
+                    <img src="${p.thumbnail}" />
                 </div>
             `}).join('')}`);
 
